@@ -11,7 +11,7 @@ bool Adafruit_CCS811::begin(uint8_t addr)
 {
 	_i2caddr = addr;
 	
-	_i2c_init();
+	//_i2c_init();  //SJ
 
 	SWReset();
 	delay(100);
@@ -239,7 +239,7 @@ uint8_t Adafruit_CCS811::read8(byte reg)
 
 void Adafruit_CCS811::_i2c_init()
 {
-	Wire.begin();
+	Wire.begin(2,14);
 }
 
 void Adafruit_CCS811::read(uint8_t reg, uint8_t *buf, uint8_t num)
